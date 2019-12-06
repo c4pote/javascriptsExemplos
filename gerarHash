@@ -95,19 +95,19 @@ var sha256 = function sha256(ascii) {
 	return result;
 };
 
-var teste = (parametros) => {
-
- 
-  console.log('teste - ' + parametros )   
-  if(parametros.substring(0,2) == 00) {
-    console.log(parametros.substring(0,2))
+//This function get hash and stops when find two zeros at the beginning of the text
+var getHash = (ascii) => {
+  console.log('Hash - ' + ascii )   
+  //Verify two zeros at the beginning
+  if(ascii.substring(0,2) == 00) {
+    console.log(ascii.substring(0,2))
     return 0
   }
 
  	
    setTimeout(() =>{
-      teste(sha256(parametros)) 
+      getHash(sha256(ascii)) 
    }, 200)
 }
 
-teste('Alguma informação para ser processada ate chegar em um hash que comece com 00')
+getHash('Alguma informação para ser processada ate chegar em um hash que comece com 00')
